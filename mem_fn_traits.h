@@ -69,9 +69,9 @@ struct member_function_pointer_trait<R(C::*)(As...)>
     using return_type = R;
     using arg_types   = std::tuple<As...>;
 
-    static constexpr int n_args = std::tuple_size_v<arg_types>;
+    static constexpr int n_args = std::tuple_size<arg_types>::value;
     template<int I>
-    using arg = std::tuple_element_t<I, arg_types>;
+    using arg = typename std::tuple_element<I, arg_types>::type;
 
     static constexpr bool has_va_args              = false;
     static constexpr bool has_const_qualifier      = false;
@@ -87,9 +87,9 @@ struct member_function_pointer_trait<R(C::*)(As...) &&>
     using return_type = R;
     using arg_types   = std::tuple<As...>;
 
-    static constexpr int n_args = std::tuple_size_v<arg_types>;
+    static constexpr int n_args = std::tuple_size<arg_types>::value;
     template<int I>
-    using arg = std::tuple_element_t<I, arg_types>;
+    using arg = typename std::tuple_element<I, arg_types>::type;
     
     static constexpr bool has_va_args              = false;
     static constexpr bool has_const_qualifier      = false;
@@ -105,9 +105,9 @@ struct member_function_pointer_trait<R(C::*)(As...) &>
     using return_type = R;
     using arg_types   = std::tuple<As...>;
 
-    static constexpr int n_args = std::tuple_size_v<arg_types>;
+    static constexpr int n_args = std::tuple_size<arg_types>::value;
     template<int I>
-    using arg = std::tuple_element_t<I, arg_types>;
+    using arg = typename std::tuple_element<I, arg_types>::type;
     
     static constexpr bool has_va_args              = false;
     static constexpr bool has_const_qualifier      = false;
@@ -123,9 +123,9 @@ struct member_function_pointer_trait<R(C::*)(As...) volatile>
     using return_type = R;
     using arg_types   = std::tuple<As...>;
 
-    static constexpr int n_args = std::tuple_size_v<arg_types>;
+    static constexpr int n_args = std::tuple_size<arg_types>::value;
     template<int I>
-    using arg = std::tuple_element_t<I, arg_types>;
+    using arg = typename std::tuple_element<I, arg_types>::type;
     
     static constexpr bool has_va_args              = false;
     static constexpr bool has_const_qualifier      = false;
@@ -141,9 +141,9 @@ struct member_function_pointer_trait<R(C::*)(As...) volatile &&>
     using return_type = R;
     using arg_types   = std::tuple<As...>;
 
-    static constexpr int n_args = std::tuple_size_v<arg_types>;
+    static constexpr int n_args = std::tuple_size<arg_types>::value;
     template<int I>
-    using arg = std::tuple_element_t<I, arg_types>;
+    using arg = typename std::tuple_element<I, arg_types>::type;
     
     static constexpr bool has_va_args              = false;
     static constexpr bool has_const_qualifier      = false;
@@ -159,9 +159,9 @@ struct member_function_pointer_trait<R(C::*)(As...) volatile &>
     using return_type = R;
     using arg_types   = std::tuple<As...>;
 
-    static constexpr int n_args = std::tuple_size_v<arg_types>;
+    static constexpr int n_args = std::tuple_size<arg_types>::value;
     template<int I>
-    using arg = std::tuple_element_t<I, arg_types>;
+    using arg = typename std::tuple_element<I, arg_types>::type;
     
     static constexpr bool has_va_args              = false;
     static constexpr bool has_const_qualifier      = false;
@@ -177,9 +177,9 @@ struct member_function_pointer_trait<R(C::*)(As...) const>
     using return_type = R;
     using arg_types   = std::tuple<As...>;
 
-    static constexpr int n_args = std::tuple_size_v<arg_types>;
+    static constexpr int n_args = std::tuple_size<arg_types>::value;
     template<int I>
-    using arg = std::tuple_element_t<I, arg_types>;
+    using arg = typename std::tuple_element<I, arg_types>::type;
     
     static constexpr bool has_va_args              = false;
     static constexpr bool has_const_qualifier      = true;
@@ -195,9 +195,9 @@ struct member_function_pointer_trait<R(C::*)(As...) const &&>
     using return_type = R;
     using arg_types   = std::tuple<As...>;
 
-    static constexpr int n_args = std::tuple_size_v<arg_types>;
+    static constexpr int n_args = std::tuple_size<arg_types>::value;
     template<int I>
-    using arg = std::tuple_element_t<I, arg_types>;
+    using arg = typename std::tuple_element<I, arg_types>::type;
     
     static constexpr bool has_va_args              = false;
     static constexpr bool has_const_qualifier      = true;
@@ -213,9 +213,9 @@ struct member_function_pointer_trait<R(C::*)(As...) const &>
     using return_type = R;
     using arg_types   = std::tuple<As...>;
 
-    static constexpr int n_args = std::tuple_size_v<arg_types>;
+    static constexpr int n_args = std::tuple_size<arg_types>::value;
     template<int I>
-    using arg = std::tuple_element_t<I, arg_types>;
+    using arg = typename std::tuple_element<I, arg_types>::type;
     
     static constexpr bool has_va_args              = false;
     static constexpr bool has_const_qualifier      = true;
@@ -231,9 +231,9 @@ struct member_function_pointer_trait<R(C::*)(As...) const volatile>
     using return_type = R;
     using arg_types   = std::tuple<As...>;
 
-    static constexpr int n_args = std::tuple_size_v<arg_types>;
+    static constexpr int n_args = std::tuple_size<arg_types>::value;
     template<int I>
-    using arg = std::tuple_element_t<I, arg_types>;
+    using arg = typename std::tuple_element<I, arg_types>::type;
     
     static constexpr bool has_va_args              = false;
     static constexpr bool has_const_qualifier      = true;
@@ -249,9 +249,9 @@ struct member_function_pointer_trait<R(C::*)(As...) const volatile &&>
     using return_type = R;
     using arg_types   = std::tuple<As...>;
 
-    static constexpr int n_args = std::tuple_size_v<arg_types>;
+    static constexpr int n_args = std::tuple_size<arg_types>::value;
     template<int I>
-    using arg = std::tuple_element_t<I, arg_types>;
+    using arg = typename std::tuple_element<I, arg_types>::type;
     
     static constexpr bool has_va_args              = false;
     static constexpr bool has_const_qualifier      = true;
@@ -267,9 +267,9 @@ struct member_function_pointer_trait<R(C::*)(As...) const volatile &>
     using return_type = R;
     using arg_types   = std::tuple<As...>;
 
-    static constexpr int n_args = std::tuple_size_v<arg_types>;
+    static constexpr int n_args = std::tuple_size<arg_types>::value;
     template<int I>
-    using arg = std::tuple_element_t<I, arg_types>;
+    using arg = typename std::tuple_element<I, arg_types>::type;
     
     static constexpr bool has_va_args              = false;
     static constexpr bool has_const_qualifier      = true;
