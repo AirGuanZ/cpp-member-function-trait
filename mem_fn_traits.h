@@ -47,11 +47,11 @@
  *         void f2(...) volatile &;
  *     };
  *
- *     member_function_trait<decltype(&A::f1)>::arg<0>                   -> const int &
- *     member_function_trait<decltype(&A::f1)>::has_const_qualifier      -> true
- *     member_function_trait<decltype(&A::f2)>::has_va_args              -> true
- *     member_function_trait<decltype(&A::f2)>::has_volatile_qualifier   -> true
- *     member_function_trait<decltype(&A::f2)>::has_rvalue_ref_qualifier -> true
+ *     member_function_pointer_trait<decltype(&A::f1)>::arg<0>                   -> const int &
+ *     member_function_pointer_trait<decltype(&A::f1)>::has_const_qualifier      -> true
+ *     member_function_pointer_trait<decltype(&A::f2)>::has_va_args              -> true
+ *     member_function_pointer_trait<decltype(&A::f2)>::has_volatile_qualifier   -> true
+ *     member_function_pointer_trait<decltype(&A::f2)>::has_rvalue_ref_qualifier -> true
  */
 
 #ifndef MEM_FN_TRAIT_H
